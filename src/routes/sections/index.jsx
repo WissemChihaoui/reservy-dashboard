@@ -11,6 +11,7 @@ import { adminRoutes } from './admin';
 import { ownerRoutes } from './owner';
 import { referralRoutes } from './referral';
 import { staffRoutes } from './staff';
+import { paths } from '../paths';
 // ----------------------------------------------------------------------
 
 export function Router() {
@@ -21,7 +22,7 @@ export function Router() {
   return useRoutes([
     {
       path: '/',
-      element: <Navigate to={linkRole} replace />,
+      element: linkRole ? <Navigate to={linkRole} replace /> : <Navigate to={paths.auth.jwt.signIn} replace />,
     },
 
     // Auth
