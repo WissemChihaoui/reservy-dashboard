@@ -5,6 +5,8 @@ const ROOTS = {
   DASHBOARD: '/dashboard',
   ADMIN: '/admin',
   OWNER: '/owner',
+  STAFF: '/staff',
+  REFERRAL: '/referral',
 };
 
 // ----------------------------------------------------------------------
@@ -63,5 +65,14 @@ export const paths = {
     root: ROOTS.OWNER,
     page: `${ROOTS.OWNER}/page`,
   },
-
+  // STAFF
+  staff: {
+    root: ROOTS.STAFF,
+    page: `${ROOTS.STAFF}/page`,
+  },
+  // REFERRAL
+  referral: {
+    root: ROOTS.REFERRAL,
+    page: `${ROOTS.REFERRAL}/page`,
+  },
 };

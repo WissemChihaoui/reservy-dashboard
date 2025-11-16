@@ -4,33 +4,33 @@ import { Outlet } from 'react-router-dom';
 import { LoadingScreen } from 'src/components/loading-screen';
 import { RoleBasedGuard } from 'src/auth/guard/role-based-guard';
 import { useAuth } from 'src/auth/context/auth-context';
-import { adminNavData } from 'src/routes/dashboard-items/admin';
-import { AdminLayout } from 'src/layouts/admin';
+import { staffNavData } from 'src/routes/dashboard-items/staff';
 import { AuthGuard } from 'src/auth/guard';
+import { StaffLayout } from 'src/layouts/staff';
 
-const IndexPage = lazy(() => import('src/pages/dashboard/admin/index'));
-const Page2 = lazy(() => import('src/pages/dashboard/admin/page'));
+const IndexPage = lazy(() => import('src/pages/dashboard/staff/index'));
+const Page2 = lazy(() => import('src/pages/dashboard/staff/page'));
 
 // Role-based dashboard wrapper component
-function AdminDashboardRoute() {
+function StaffDashboardRoute() {
   const { user } = useAuth();
   return (
     <AuthGuard>
-      <RoleBasedGuard acceptRoles={['admin']} currentRole={user?.role} hasContent>
-        <AdminLayout data={{ nav: adminNavData }}>
+      <RoleBasedGuard acceptRoles={['staff']} currentRole={user?.role} hasContent>
+        <StaffLayout data={{ nav: staffNavData }}>
           <Suspense fallback={<LoadingScreen />}>
             <Outlet />
           </Suspense>
-        </AdminLayout>
+        </StaffLayout>
       </RoleBasedGuard>
     </AuthGuard>
   );
 }
 
-export const adminRoutes = [
+export const staffRoutes = [
   {
-    path: 'admin',
-    element: <AdminDashboardRoute />,
+    path: 'staff',
+    element: <StaffDashboardRoute />,
     children: [
       { element: <IndexPage />, index: true },
       { path: 'page', element: <Page2 /> },

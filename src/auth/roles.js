@@ -1,3 +1,5 @@
+import { paths } from "src/routes/paths";
+
 // src/auth/roles.js
 export const ROLES = {
   ADMIN: 'admin',
@@ -13,4 +15,7 @@ export const ROLE_HIERARCHY = {
   [ROLES.REFERRAL]: 1
 };
 
-export const hasPermission = (userRole, requiredRole) => ROLE_HIERARCHY[userRole] >= ROLE_HIERARCHY[requiredRole];
+export const ROLE_PATH = {
+  admin: paths.admin.root,
+  owner: paths.owner.root
+}
