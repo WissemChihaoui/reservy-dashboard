@@ -26,9 +26,9 @@ export function AuthProvider({ children }) {
 
         const res = await axios.get(endpoints.auth.me);
 
-        const { user } = res.data;
+        const { data } = res.data;
 
-        setState({ user: { ...user, accessToken }, loading: false });
+        setState({ user: { ...data, accessToken }, loading: false });
       } else {
         setState({ user: null, loading: false });
       }
@@ -54,7 +54,7 @@ export function AuthProvider({ children }) {
       user: state.user
         ? {
             ...state.user,
-            role: state.user?.role || 'referral',  // Use actual role from backend
+            role: state.user?.role,  // Use actual role from backend
           }
         : null,
       checkUserSession,
@@ -64,8 +64,6 @@ export function AuthProvider({ children }) {
     }),
     [checkUserSession, state.user, status]
   );
-
-  console.log(memoizedValue);
 
   return <AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>;
 }
