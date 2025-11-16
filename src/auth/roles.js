@@ -17,5 +17,7 @@ export const ROLE_HIERARCHY = {
 
 export const ROLE_PATH = {
   admin: paths.admin.root,
-  owner: paths.owner.root
+  owner: paths.owner.root,
+  staff: paths.staff.root,
+  referral: paths.referral.root
 }
