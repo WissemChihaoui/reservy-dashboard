@@ -8,7 +8,7 @@ import { BlankView } from 'src/sections/blank/view';
 
 const metadata = { title: `Referral Dashboard | Dashboard - ${CONFIG.appName}` };
 
-export default function ReferralDashboard() {
+export default function Page() {
   return (
     <>
       <Helmet>
