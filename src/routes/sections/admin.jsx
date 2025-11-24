@@ -11,6 +11,8 @@ import { AuthGuard } from 'src/auth/guard';
 const IndexPage = lazy(() => import('src/pages/dashboard/admin/index'));
 const Page2 = lazy(() => import('src/pages/dashboard/admin/page'));
 
+const Etablissements = lazy(() => import('src/pages/dashboard/admin/etablissements'));
+
 // Role-based dashboard wrapper component
 function AdminDashboardRoute() {
   const { user } = useAuth();
@@ -34,6 +36,7 @@ export const adminRoutes = [
     children: [
       { element: <IndexPage />, index: true },
       { path: 'page', element: <Page2 /> },
+      { path: 'etablissements', children: [{ element: <Etablissements />, index: true }] },
     ],
   },
 ];

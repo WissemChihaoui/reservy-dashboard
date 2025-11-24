@@ -40,7 +40,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     checkUserSession();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps 
   }, []);
 
   // ----------------------------------------------------------------------
@@ -65,5 +65,5 @@ export function AuthProvider({ children }) {
     [checkUserSession, state.user, status]
   );
 
-  return <AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>;
+    return <AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>;
 }

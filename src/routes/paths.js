@@ -59,6 +59,9 @@ export const paths = {
   admin: {
     root: ROOTS.ADMIN,
     page: `${ROOTS.ADMIN}/page`,
+    etablissements: {
+      root: `${ROOTS.ADMIN}/etablissements`,
+    },
   },
   // OWNER
   owner: {

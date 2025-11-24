@@ -48,8 +48,8 @@ export function JwtSignInView() {
   const password = useBoolean();
 
   const defaultValues = {
-    email: 'demo@minimals.cc',
-    password: '@demo1',
+    email: 'admin@beautysalon.tn',
+    password: 'Admin@2025',
   };
 
   const methods = useForm({

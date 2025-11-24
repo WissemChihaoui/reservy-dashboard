@@ -19,13 +19,12 @@ export function GuestGuard({ children }) {
 
   const { loading, authenticated } = useAuthContext();
 
-    const { user } = useAuth();
+  const { user } = useAuth();
 
-    const linkRole = ROLE_PATH[user?.role];
+  const linkRole = ROLE_PATH[user?.role];
     
-      console.log(linkRole);
+  console.log(linkRole);
   
-
   const [isChecking, setIsChecking] = useState(true);
 
   const returnTo = searchParams.get('returnTo') || linkRole;

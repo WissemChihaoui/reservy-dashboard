@@ -38,10 +38,48 @@ const ICONS = {
 
 export const adminNavData = [
     {
-        subheader: 'Admin',
+        subheader: 'Administration',
         items: [
-            { title: 'One', path: paths.admin.root, icon: ICONS.dashboard },
-            { title: 'Two', path: paths.admin.page, icon: ICONS.ecommerce },
+            { title: 'Tableau De Bord', path: paths.admin.root, icon: ICONS.dashboard },
+            { title: 'Accés Admins', path: paths.admin.page, icon: ICONS.user },
+            { title: 'Les Propriétaires', path: paths.admin.page, icon: ICONS.user },
+            { title: 'Les Etablissements', path: paths.admin.etablissements.root, icon: ICONS.user },
+            { title: 'Les Clients', path: paths.admin.page, icon: ICONS.user },
         ],
     },
+    {
+        subheader: 'Marketing',
+        items: [
+            { title: 'Menu 1', path: paths.admin.root, icon: ICONS.dashboard },
+            { title: 'Menu 2', path: paths.admin.root, icon: ICONS.dashboard },
+        ]
+    }, 
+    {
+        subheader: 'Site Client',
+        items: [
+            { title: 'Menu 1', path: paths.admin.root, icon: ICONS.dashboard },
+            { title: 'Menu 2', path: paths.admin.root, icon: ICONS.dashboard },
+        ]
+    },
+    {
+        subheader: 'Affiliation',
+        items: [
+            { title: 'Menu 1', path: paths.admin.root, icon: ICONS.dashboard },
+            { title: 'Menu 2', path: paths.admin.root, icon: ICONS.dashboard },
+        ]
+    },
+    {
+        subheader: 'Développement',
+        items: [
+            { title: 'Menu 1', path: paths.admin.root, icon: ICONS.dashboard },
+            { title: 'Menu 2', path: paths.admin.root, icon: ICONS.dashboard },
+        ]
+    },
+    {
+        subheader: 'Paramètres',
+        items: [
+            { title: 'Menu 1', path: paths.admin.root, icon: ICONS.dashboard },
+            { title: 'Menu 2', path: paths.admin.root, icon: ICONS.dashboard },
+        ]
+    }
 ]
