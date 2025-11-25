@@ -62,6 +62,9 @@ export const paths = {
     etablissements: {
       root: `${ROOTS.ADMIN}/etablissements`,
     },
+    categories: {
+      root: `${ROOTS.ADMIN}/categories`,
+    },
   },
   // OWNER
   owner: {

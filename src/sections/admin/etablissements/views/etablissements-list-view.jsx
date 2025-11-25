@@ -1,4 +1,4 @@
-import { Box, Card, IconButton, Table, TableBody, Tooltip } from '@mui/material';
+import { Box, Button, Card, IconButton, Stack, Table, TableBody, Tooltip } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
 import { Iconify } from 'src/components/iconify';
@@ -21,6 +21,7 @@ import { paths } from 'src/routes/paths';
 import { fIsAfter, fIsBetween } from 'src/utils/format-time';
 import { useRouter } from 'src/routes/hooks';
 import { toast } from 'sonner';
+import { RouterLink } from 'src/routes/components';
 import EtablissementsTableRow from '../etablissements-table-row';
 import EtablissementsToolbar from '../etablissements-toolbar';
 import EtablissementTableFiltersResult from '../etablissements-table-filter-result';
@@ -41,7 +42,6 @@ export default function EtablissementsListView({ etablissement = [], loading, er
     setTableData(etablissement);
   }, [etablissement]);
 
-  console.log(tableData);
   const table = useTable({ defaultOrderBy: 'createdAt' });
 
   const confirm = useBoolean();
@@ -116,6 +116,12 @@ export default function EtablissementsListView({ etablissement = [], loading, er
           { name: 'Tableau de bord', href: paths.admin.root },
           { name: 'Les établissements' },
         ]}
+        action={
+          <Stack direction="row" spacing={2}>
+            <Button variant='contained' href={paths.admin.root} LinkComponent={RouterLink}>Les Propriétaires</Button>
+            <Button variant='contained' color='primary' href={paths.admin.etablissements} LinkComponent={RouterLink}>Ajouter un établissement</Button>
+          </Stack>
+        }
         sx={{ mb: { xs: 3, md: 5 } }}
       />
 

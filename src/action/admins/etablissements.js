@@ -10,7 +10,7 @@ const swrOptions = {
 };
 
 export function useGetEtablissements() {
-    const { data, error, isLoading } = useSWR(endpoints.admins.etablissements, fetcher, swrOptions);
+    const { data, error, isLoading } = useSWR(endpoints.admins.etablissements.all, fetcher, swrOptions);
 
     const memoizedValue = useMemo(
         () => ({

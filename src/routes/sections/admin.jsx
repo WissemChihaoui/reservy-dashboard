@@ -12,6 +12,7 @@ const IndexPage = lazy(() => import('src/pages/dashboard/admin/index'));
 const Page2 = lazy(() => import('src/pages/dashboard/admin/page'));
 
 const Etablissements = lazy(() => import('src/pages/dashboard/admin/etablissements'));
+const Categries = lazy(() => import('src/pages/dashboard/admin/categories/index'));
 
 // Role-based dashboard wrapper component
 function AdminDashboardRoute() {
@@ -37,6 +38,7 @@ export const adminRoutes = [
       { element: <IndexPage />, index: true },
       { path: 'page', element: <Page2 /> },
       { path: 'etablissements', children: [{ element: <Etablissements />, index: true }] },
+      { path: 'categories', children: [{ element: <Categries />, index: true }] },
     ],
   },
 ];

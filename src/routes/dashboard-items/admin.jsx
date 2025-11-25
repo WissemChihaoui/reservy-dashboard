@@ -45,6 +45,7 @@ export const adminNavData = [
             { title: 'Les Propriétaires', path: paths.admin.page, icon: ICONS.user },
             { title: 'Les Etablissements', path: paths.admin.etablissements.root, icon: ICONS.user },
             { title: 'Les Clients', path: paths.admin.page, icon: ICONS.user },
+            { title: 'Les Catégories', path: paths.admin.categories.root, icon: ICONS.folder}
         ],
     },
     {
