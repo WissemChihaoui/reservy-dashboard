@@ -1,27 +1,27 @@
 import useSWR, { mutate } from 'swr';
 import { useMemo } from 'react';
 
-import { fetcher, endpoints, poster } from 'src/utils/axios';
+import { fetcher, endpoints, poster, putter, deleter } from 'src/utils/axios';
 
 const swrOptions = {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
+  revalidateIfStale: false,
+  revalidateOnFocus: false,
+  revalidateOnReconnect: false,
 };
 
 export function useGetCategories() {
-    const { data, error, isLoading } = useSWR(endpoints.admins.categories.all, fetcher, swrOptions);
+  const { data, error, isLoading } = useSWR(endpoints.admins.categories.all, fetcher, swrOptions);
 
-    const memoizedValue = useMemo(
-        () => ({
-            categories: data?.data,
-            isLoading,
-            error,
-        }),
-        [data, isLoading, error]
-    )
+  const memoizedValue = useMemo(
+    () => ({
+      categories: data?.data,
+      isLoading,
+      error,
+    }),
+    [data, isLoading, error]
+  )
 
-    return memoizedValue;
+  return memoizedValue;
 }
 
 export async function createCategory(data) {
@@ -34,3 +34,42 @@ export async function createCategory(data) {
     mutate(endpoints.admins.categories.all); // This will refetch the categories list
   });
 }
+
+export async function updateCategory(id, data) {
+  const url = `${endpoints.admins.categories.all}/${id}`;
+  return putter(url, data, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(() => {
+    mutate(endpoints.admins.categories.all); // This will refetch the categories list
+  });
+}
+
+
+export async function deleteCategory(id) {
+  const url = `${endpoints.admins.categories.all}/${id}`;
+  return deleter(url, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(() => {
+    mutate(endpoints.admins.categories.all); // This will refetch the categories list
+  });
+}
+
+export function useGetCategory(id) {
+  const { data, error, isLoading } = useSWR(`${endpoints.admins.categories.all}/${id}`, fetcher, swrOptions);
+
+  const memoizedValue = useMemo(
+    () => ({
+      category: data?.data,
+      isLoading,
+      error,
+    }),
+    [data, isLoading, error]
+  )
+
+  return memoizedValue;
+}
+

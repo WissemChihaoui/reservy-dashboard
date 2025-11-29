@@ -22,6 +22,7 @@ import { RouterLink } from 'src/routes/components';
 import { useRouter } from 'src/routes/hooks';
 import { paths } from 'src/routes/paths';
 import { fIsAfter, fIsBetween } from 'src/utils/format-time';
+import { deleteCategory } from 'src/action/admins/categories';
 import CategoriesToolbar from '../categories-toolbar';
 import CategoriesTableFiltersResult from '../categories-table-filters-result';
 import CategoriesTableRow from '../categories-table-row';
@@ -72,15 +73,16 @@ export default function CategoriesListView({ categories = [], loading, error }) 
 
   const handleDeleteRow = useCallback(
     (id) => {
-      const deleteRow = tableData.filter((row) => row.id !== id);
-
-      toast.success('Delete success!');
-
-      setTableData(deleteRow);
-
-      table.onUpdatePageDeleteRow(dataInPage.length);
+      toast.promise(
+        deleteCategory(id),
+        {
+          loading: 'Deleting...',
+          success: 'Deleted!',
+          error: 'Failed to delete!',
+        }
+      );
     },
-    [dataInPage.length, table, tableData]
+    []
   );
 
   const handleDeleteRows = useCallback(() => {

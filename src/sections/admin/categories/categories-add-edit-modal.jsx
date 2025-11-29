@@ -8,7 +8,7 @@ import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle } from '
 
 import { toast } from 'sonner';
 import { Field, Form } from 'src/components/hook-form';
-import { createCategory } from 'src/action/admins/categories';
+import { createCategory, updateCategory } from 'src/action/admins/categories';
 
 export const CategoryFromSchema = zod.object({
   name: zod.string().min(1, { message: 'Nom est requis' }),
@@ -46,7 +46,7 @@ export default function CategoriesAddEditDialog({ open, onClose, category }) {
       
       if (category?.id) {
         console.log('UPDATING...');
-        // await updateCategory(category.id, data);
+        await updateCategory(category.id, data);
       } else {
         console.log('CREATING...');
         await createCategory(data);
